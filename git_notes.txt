@@ -1,3 +1,7 @@
 1. git add somefiles
 2. git commit -m "comment"
 3. git status 查看状态， git diff 查看具体变更内容
+4. git log --pretty=oneline 查看git提交历史log
+5. git reset --hard HEAD^ 回滚到上一版本
+6. git reset --hard commit_id 再滚回来
+7. git reflog 查看每一次命令历史，即使已经关闭bash
