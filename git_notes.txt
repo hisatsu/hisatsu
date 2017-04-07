@@ -1,0 +1,2 @@
+1. git add somefiles
+2. git commit -m "comment"
