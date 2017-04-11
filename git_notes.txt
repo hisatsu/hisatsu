@@ -5,3 +5,6 @@
 5. git reset --hard HEAD^ 回滚到上一版本
 6. git reset --hard commit_id 再滚回来
 7. git reflog 查看每一次命令历史，即使已经关闭bash
+7.5 git remote set-url origin https://github.com/hisatsu/hisatsu.git
+8. git push origin master 推送到远程
+
