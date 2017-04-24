@@ -17,7 +17,7 @@ pattern2 = re.compile(r'摘要.*其中住宅签约(\d+)套')
 
 # strftime format time
 delta = datetime.timedelta(days=1)
-start_date = datetime.date(2017, 4, 15)
+start_date = datetime.date(2017, 4, 20)
 # start = str(start_date.strftime('%Y%m%d'))
 end_date = datetime.date.today() # - delta
 # end = str(end_date.strftime('%Y%m%d'))
@@ -40,20 +40,34 @@ def numbers(response, pattern):
     return pattern.search(data).group(1)
 
 # 获取两个日期之间的日期 并由此拼出url 获取数据
+excel = []
+xf_dict = {}
+esf_dict = {}
 while start_date < end_date:
     # start 数据需要刷新
     date = start_date.strftime('%Y%m%d')
+    excel.append(date)
     url_xf = 'http://www.tmsf.com/upload/report/mrhqbb/' + date + '/xf.html'
     url_esf = 'http://www.tmsf.com/upload/report/mrhqbb/' + date + '/esf.html'
     xfdata = gather(url_xf)
     xf = numbers(xfdata, pattern1)
-    print(xf)
+    excel.append(xf)
+    # print(xf)
     # print(date + '新房:' + gather(url_xf, pattern1))
     esfdata = gather(url_esf)
     esf = numbers(esfdata, pattern2)
-    print(esf)
+    excel.append(esf)
+    xf_dict[date] = xf
+    esf_dict[date] = esf
+    # print(esf)
     # print(date + '二手:' + gather(url_esf, pattern2))
     start_date += delta
+new_excel = [excel[i:i+3] for i in range(0, len(excel), 3)]
+print(new_excel)
+print(xf_dict)
+print(esf_dict)
+
+
 
 
 
