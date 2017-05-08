@@ -11,7 +11,7 @@ import random
 
 # login
 mobile_emulation = {
-    "deviceMetrics": {"width": 360, "height": 640, "pixelRatio": 3.0},
+    "deviceMetrics": {"width": 1024, "height": 768, "pixelRatio": 3.0},
     "userAgent": "Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) "
                  "AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19"}
 chrome_options = Options()
@@ -26,11 +26,13 @@ driver.find_element_by_name("submit").click()
 time.sleep(random.uniform(1, 2))
 # get personal page(mobiel = no), target uid
 # settings
-pid = '48207330'
+pid = '48208247'
 uid = '5310405'
-reply = [u'好好干。再回100贴明天的盒饭就有着落了。多回50帖，奖励1个烂虾；多回100帖，奖励1条臭鱼。都可以带回家给你老娘吃',
+reply = [u'好好干。再回100贴明天的盒饭就有着落了。',
+         u'再多回50帖，奖励1个烂虾；多回100帖，奖励1条臭鱼。都可以带回家给你老娘吃',
          u'又牵着你妈出来卖，还不马路上跪着求人接盘去，你那脏病破烂的房子白送也没人要吧，无论行情好坏。',
-         u'有手有脚的干什么不好，非要出来干这缺德事？5毛钱拿好，回去买顿好的。让你老娘也别再出去卖了。你也是不容易。'
+         u'有手有脚的干什么不好，非要出来干这缺德事？',
+         u'5毛钱拿好，回去买顿好的。让你老娘也别再出去卖了。孤儿寡母也是不容易。'
         ]
 
 while True:
