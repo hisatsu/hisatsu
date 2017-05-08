@@ -37,6 +37,7 @@ while True:
     try:
         driver.get(
             "http://zzhzbbs.zjol.com.cn/home.php?mod=space&uid=" + uid + "&do=thread&type=reply&view=me&from=space&mobile=no")
+
         time.sleep(random.uniform(1, 2))
         handle1 = driver.current_window_handle
         # get the pid of the latest reply
