@@ -68,7 +68,7 @@ while True:
             driver.switch_to.parent_frame()
             driver.find_element_by_name('replysubmit').click()
             reply_time = datetime.datetime.now().strftime('%Y/%m/%d %H:%M')
-            time.sleep(random.uniform(1, 2))
+            time.sleep(random.uniform(3, 4))
             driver.close()
             driver.switch_to.window(handle1)
             print(pid_latest + 'replyed@' + reply_time)
