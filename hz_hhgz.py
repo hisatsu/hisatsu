@@ -29,7 +29,7 @@ time.sleep(random.uniform(1, 2))
 pid = '48193984'
 uid = '5310405'
 reply = [u'好好干。再回100贴明天的盒饭就有着落了',
-         u'又牵着你妈出来卖肛，还不马路上跪着求人接盘去，你那脏病破烂的房子白送也没人要吧，无论行情好坏。'
+         u'又牵着你妈出来卖，还不马路上跪着求人接盘去，你那脏病破烂的房子白送也没人要吧，无论行情好坏。'
         ]
 
 while True:
@@ -59,7 +59,7 @@ while True:
         time.sleep(random.uniform(1, 2))
         # switch to the rich text frame
         driver.switch_to.frame('e_iframe')
-        driver.find_element_by_xpath("//body[@spellcheck='false']").send_keys(reply[random.randrange(len(reply)-1)])
+        driver.find_element_by_xpath("//body[@spellcheck='false']").send_keys(reply[random.randrange(len(reply))])
         driver.switch_to.parent_frame()
         driver.find_element_by_name('replysubmit').click()
         reply_time = datetime.datetime.now().strftime('%Y/%m/%d %H:%M')
