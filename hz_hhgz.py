@@ -31,7 +31,7 @@ driver.find_element_by_name("submit").click()
 time.sleep(random.uniform(1, 2))
 # get personal page(mobiel = no), target uid
 # settings
-pid = '48211652'
+pid = '48212126'
 uid = '5310405'
 reply = [u'好好干。再回100贴你明天的盒饭就有着落了。',
          u'你全家自吃自拉吃了3个月的屎了，大家发发善心，白收了这煞笔的房子吧。',
@@ -43,6 +43,11 @@ reply = [u'好好干。再回100贴你明天的盒饭就有着落了。',
 
 while True:
     try:
+        # check notice
+        driver.get('http://zzhzbbs.zjol.com.cn/home.php?mod=space&do=notice&view=system&mobile=no')
+        time.sleep(1)
+        driver.get('http://zzhzbbs.zjol.com.cn/home.php?mod=space&do=notice&view=mypost&mobile=no')
+        time.sleep(1)
         driver.get(
             "http://zzhzbbs.zjol.com.cn/home.php?mod=space&uid=" + uid + "&do=thread&type=reply&view=me&from=space&mobile=no")
         time.sleep(random.uniform(1, 2))
@@ -79,11 +84,7 @@ while True:
             element.click()
             reply_time = datetime.datetime.now().strftime('%Y/%m/%d %H:%M')
             time.sleep(random.uniform(3, 4))
-            # check notice
-            driver.get('http://zzhzbbs.zjol.com.cn/home.php?mod=space&do=notice&view=system')
-            time.sleep(1)
-            driver.get('http://zzhzbbs.zjol.com.cn/home.php?mod=space&do=notice&view=mypost')
-            time.sleep(1)
+
             driver.close()
             driver.switch_to.window(handle1)
             print(pid_latest + 'replyed@' + reply_time)
