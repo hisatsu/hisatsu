@@ -21,6 +21,8 @@ chrome_options = Options()
 chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
 driver = webdriver.Chrome(chrome_options=chrome_options)
 driver.get("http://zzhzbbs.zjol.com.cn/member.php?mod=logging&action=login&mobile=1")
+driver.set_window_size(1024, 768)
+driver.set_window_position(-2000, 0)
 time.sleep(random.uniform(1, 2))
 driver.find_element_by_name("username").send_keys(u't8oo')
 driver.find_element_by_name("password").send_keys(u'1q2w3e4r5t')
@@ -29,21 +31,20 @@ driver.find_element_by_name("submit").click()
 time.sleep(random.uniform(1, 2))
 # get personal page(mobiel = no), target uid
 # settings
-pid = '48209419'
+pid = '48211652'
 uid = '5302519'
-reply = [
+reply = [u'狗叫个两声也自以为是学人说话了。去翻翻字典，人的定义是什么？',
          u'再多回50帖，奖励1个烂虾；多回100帖，奖励1条臭鱼。都可以带回家给你老娘吃',
          u'又牵着你妈出来卖，还不马路上跪着求人接盘去，你那脏病破烂的房子白送也没人要吧，无论行情好坏。',
          u'你智商真的有问题，好好想想。不过估计你也想不通',
+         u'为了托你那狗窝，真是什么不要脸的话都说的出口',
          u'5毛钱拿好，回去买顿好的。让你老娘也别再出去卖了。孤儿寡母也是不容易。'
-
         ]
 
 while True:
     try:
         driver.get(
             "http://zzhzbbs.zjol.com.cn/home.php?mod=space&uid=" + uid + "&do=thread&type=reply&view=me&from=space&mobile=no")
-
         time.sleep(random.uniform(1, 2))
         handle1 = driver.current_window_handle
         # get the pid of the latest reply
@@ -78,6 +79,11 @@ while True:
             element.click()
             reply_time = datetime.datetime.now().strftime('%Y/%m/%d %H:%M')
             time.sleep(random.uniform(3, 4))
+            # check notice
+            driver.get('http://zzhzbbs.zjol.com.cn/home.php?mod=space&do=notice&view=system')
+            time.sleep(1)
+            driver.get('http://zzhzbbs.zjol.com.cn/home.php?mod=space&do=notice&view=mypost')
+            time.sleep(1)
             driver.close()
             driver.switch_to.window(handle1)
             print(pid_latest + 'replyed@' + reply_time)

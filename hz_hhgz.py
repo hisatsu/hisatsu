@@ -22,6 +22,8 @@ chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
 driver = webdriver.Chrome(chrome_options=chrome_options)
 driver.get("http://zzhzbbs.zjol.com.cn/member.php?mod=logging&action=login&mobile=1")
 time.sleep(random.uniform(1, 2))
+driver.set_window_size(1024, 768)
+driver.set_window_position(-2000, 0)
 driver.find_element_by_name("username").send_keys(u't800')
 driver.find_element_by_name("password").send_keys(u'1q2w3e4r5t')
 driver.find_element_by_name("submit").click()
@@ -29,9 +31,10 @@ driver.find_element_by_name("submit").click()
 time.sleep(random.uniform(1, 2))
 # get personal page(mobiel = no), target uid
 # settings
-pid = '48209300'
+pid = '48211652'
 uid = '5310405'
 reply = [u'好好干。再回100贴你明天的盒饭就有着落了。',
+         u'你全家自吃自拉吃了3个月的屎了，大家发发善心，白收了这煞笔的房子吧。',
          u'再多回50帖，奖励1个烂虾；多回100帖，奖励1条臭鱼。都可以带回家给你老娘吃',
          u'又牵着你妈出来卖，还不马路上跪着求人接盘去，你那脏病破烂的房子白送也没人要吧，无论行情好坏。',
          u'你智商真的有问题，好好想想。不过估计你也想不通',
@@ -57,7 +60,6 @@ while True:
                 EC.element_to_be_clickable((By.XPATH, '//table/tbody/tr[3]/td/a')))
             element.click()
             # switch to latest window
-            # time.sleep(random.uniform(2, 4))
             for handle in driver.window_handles:
                 driver.switch_to.window(handle)
             # click reply button
@@ -77,6 +79,11 @@ while True:
             element.click()
             reply_time = datetime.datetime.now().strftime('%Y/%m/%d %H:%M')
             time.sleep(random.uniform(3, 4))
+            # check notice
+            driver.get('http://zzhzbbs.zjol.com.cn/home.php?mod=space&do=notice&view=system')
+            time.sleep(1)
+            driver.get('http://zzhzbbs.zjol.com.cn/home.php?mod=space&do=notice&view=mypost')
+            time.sleep(1)
             driver.close()
             driver.switch_to.window(handle1)
             print(pid_latest + 'replyed@' + reply_time)
