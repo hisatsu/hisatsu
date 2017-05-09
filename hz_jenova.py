@@ -11,7 +11,7 @@ import random
 
 # login
 mobile_emulation = {
-    "deviceMetrics": {"width": 360, "height": 640, "pixelRatio": 3.0},
+    "deviceMetrics": {"width": 1024, "height": 768, "pixelRatio": 3.0},
     "userAgent": "Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) "
                  "AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19"}
 chrome_options = Options()
@@ -19,7 +19,7 @@ chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
 driver = webdriver.Chrome(chrome_options=chrome_options)
 driver.get("http://zzhzbbs.zjol.com.cn/member.php?mod=logging&action=login&mobile=1")
 time.sleep(random.uniform(1, 2))
-driver.find_element_by_name("username").send_keys(u't800')
+driver.find_element_by_name("username").send_keys(u't8oo')
 driver.find_element_by_name("password").send_keys(u'1q2w3e4r5t')
 driver.find_element_by_name("submit").click()
 # driver.find_element_by_class_name("grey").click()
@@ -70,7 +70,8 @@ while True:
             driver.close()
             driver.switch_to.window(handle1)
             print(pid_latest + 'replyed@' + reply_time)
-    except Exception as e:
+    except BaseException as e:
+        print(e)
         time.sleep(2)
 
     time.sleep(random.uniform(5, 10))
