@@ -46,7 +46,7 @@ while True:
         # check notice
         driver.get('http://zzhzbbs.zjol.com.cn/home.php?mod=space&do=notice&view=system&mobile=no')
         time.sleep(1)
-        driver.get('http://zzhzbbs.zjol.com.cn/home.php?mod=space&do=notice&view=mypostmobile=no')
+        driver.get('http://zzhzbbs.zjol.com.cn/home.php?mod=space&do=notice&view=mypost&mobile=no')
         time.sleep(1)
         driver.get(
             "http://zzhzbbs.zjol.com.cn/home.php?mod=space&uid=" + uid + "&do=thread&type=reply&view=me&from=space&mobile=no")
