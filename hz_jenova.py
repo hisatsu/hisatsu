@@ -24,21 +24,21 @@ driver.get("http://zzhzbbs.zjol.com.cn/member.php?mod=logging&action=login&mobil
 driver.set_window_size(1024, 768)
 driver.set_window_position(-2000, 0)
 time.sleep(random.uniform(1, 2))
-driver.find_element_by_name("username").send_keys(u't8oo')
+driver.find_element_by_name("username").send_keys(u'jenvoa0299') #jenoav0299
 driver.find_element_by_name("password").send_keys(u'1q2w3e4r5t')
 driver.find_element_by_name("submit").click()
 # driver.find_element_by_class_name("grey").click()
 time.sleep(random.uniform(1, 2))
 # get personal page(mobiel = no), target uid
 # settings
-pid = '48212126'
+pid = '48214539'
 uid = '5302519'
-reply = [u'狗叫个两声也自以为是学人说话了。去翻翻字典，人的定义是什么？',
-         u'再多回50帖，奖励1个烂虾；多回100帖，奖励1条臭鱼。都可以带回家给你老娘吃',
-         u'又牵着你妈出来卖，还不马路上跪着求人接盘去，你那脏病破烂的房子白送也没人要吧，无论行情好坏。',
-         u'你智商真的有问题，好好想想。不过估计你也想不通',
-         u'为了托你那狗窝，真是什么不要脸的话都说的出口',
-         u'5毛钱拿好，回去买顿好的。让你老娘也别再出去卖了。孤儿寡母也是不容易。'
+reply = [u'另外说一句，快来接我的房子吧，让我解了套吧，我都快疯了，让我全家做啥都行',
+         u'另外说一句，接了我的盘吧，为了还房贷，已经吃了1年萝卜干了啊',
+         u'另外说一句，接了我的盘，我就不用来口水，上串下跳的托市了啊',
+         u'另外说一句，各位父老乡亲，小子在这里说的口感舌燥，还不是为了我那个破盘吗',
+         u'另外说一句，接了我的盘，我不会笑你的，真的，我真心谢谢你',
+         u'另外说一句，我来这里也喊了几个月了，虽然还没人接我的盘，但万一有人傻呢'
         ]
 
 while True:
