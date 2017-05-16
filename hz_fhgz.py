@@ -21,20 +21,21 @@ chrome_options = Options()
 chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
 driver = webdriver.Chrome(chrome_options=chrome_options)
 driver.get("http://zzhzbbs.zjol.com.cn/member.php?mod=logging&action=login&mobile=1")
+time.sleep(random.uniform(1, 2))
 driver.set_window_size(1024, 768)
 driver.set_window_position(-2000, 0)
-time.sleep(random.uniform(1, 2))
-driver.find_element_by_name("username").send_keys(u'jenvoa0299') #jenoav0299
+driver.find_element_by_name("username").send_keys(u'粪海孤舟')
 driver.find_element_by_name("password").send_keys(u'1q2w3e4r5t')
 driver.find_element_by_name("submit").click()
 # driver.find_element_by_class_name("grey").click()
 time.sleep(random.uniform(1, 2))
 # get personal page(mobiel = no), target uid
 # settings
-pid = '48243477'
-uid = '5302519'
-reply = [u'另外说一句，快来接我的房子吧，让我解了套吧，我都快疯了，让我全家做啥都行',
+pid = '48214539'
+uid = '5310405'
+reply = [u'另外说一句，快来接我的老破小吧，一家老小急等着钱造瘘啊',
          u'另外说一句，接了我的盘吧，为了还房贷，已经吃了1年翔了啊',
+         u'哆啰啰，哆啰啰，站岗冻死我，谁来接破窝……',
          u'另外说一句，接了我的盘，我就不用来口水，上串下跳的托市了啊',
          u'另外说一句，各位父老乡亲，小子在这里说的口感舌燥，还不是为了我那个破盘吗',
          u'另外说一句，我来这里也喊了几个月了，虽然还没人接我的盘，但万一有人傻呢'
@@ -83,6 +84,7 @@ while True:
             element.click()
             reply_time = datetime.datetime.now().strftime('%Y/%m/%d %H:%M')
             time.sleep(random.uniform(3, 4))
+
             driver.close()
             driver.switch_to.window(handle1)
             print(pid_latest + 'replyed@' + reply_time)
